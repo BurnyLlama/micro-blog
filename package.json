@@ -1,0 +1,27 @@
+{
+  "name": "micro-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BurnyLlama/micro-blog.git"
+  },
+  "author": "BurnyLlama",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/BurnyLlama/micro-blog/issues"
+  },
+  "homepage": "https://github.com/BurnyLlama/micro-blog#readme",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "express": "^4.17.3",
+    "marked": "^4.0.12",
+    "nunjucks": "^3.2.3",
+    "nunjucks-markdown": "^2.0.1"
+  }
+}
