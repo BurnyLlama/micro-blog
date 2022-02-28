@@ -75,6 +75,7 @@ main {
     padding-top: .5rem;
 }
 
+/* GENERICS */
 a {
     color: #4C9CEF;
     transition: color .1s;

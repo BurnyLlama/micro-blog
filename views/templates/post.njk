@@ -1,0 +1,10 @@
+{% macro post(title, mdFile, date) %}
+    <div class="blog-post">
+        <h1 class="blog-post-title">{{ title }}</h1>
+        <div style="height: 8rem; width: 100%; background-color: #B7EFF0;"></div>
+        <div class="blog-post-body">
+            {% markdown "posts/" + mdFile %}
+        </div>
+        <p class="blog-post-date">{{ date }}</p>
+    </div>
+{% endmacro %}
