@@ -49,16 +49,31 @@ main {
     grid-area: main;
 }
 
+
+
+/* GENERICS */
+h1 {
+    font-weight: 500;
+}
+
+a {
+    color: #4C9CEF;
+    transition: color .1s;
+}
+
+a:hover {
+    color: #74B6FB;
+}
+
+
+
+/* Blog posts */
 .blog-post {
     margin-bottom: 5rem;
 }
 
 .blog-post > * {
     margin-bottom: 1rem;
-}
-
-.blog-post-title {
-    font-weight: 500;
 }
 
 .blog-post-body {
@@ -75,15 +90,6 @@ main {
     padding-top: .5rem;
 }
 
-/* GENERICS */
-a {
-    color: #4C9CEF;
-    transition: color .1s;
-}
-
-a:hover {
-    color: #74B6FB;
-}
 
 
 /* PHONE */

@@ -1,0 +1,27 @@
+{% extends "templates/base.njk" %}
+
+{% block main %}
+    <h1>Make a blog post</h1>
+    <form action="/control/set/aboutText" method="post">
+        <label for="about-text">About text:</label>
+        <textarea name="about-text" rows="10"></textarea>
+        <p class="hint">Did you know that the posts support markdown?</p>
+        <input type="submit" value="Post!">
+    </form>
+
+
+    <h1>Settings</h1>
+    <form action="/control/set/blogName" method="post">
+        <label for="blog-name">Blog name:</label>
+        <input type="text" name="blog-name">
+        <p class="hint">This is the name of the blog that gets displayed in multiple places.</p>
+        <input type="submit" value="Save!">
+    </form>
+
+    <form action="/control/set/aboutText" method="post">
+        <label for="about-text">About text:</label>
+        <textarea name="about-text" rows="10"></textarea>
+        <p class="hint">This is the text displayed <a href="/about">here</a>.</p>
+        <input type="submit" value="Save!">
+    </form>
+{% endblock %}
