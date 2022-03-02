@@ -52,8 +52,79 @@ main {
 
 
 /* GENERICS */
+p {
+    margin: .5em 0 1em 0;
+    font-family: 'Lora', serif;
+}
+
+p * {
+    font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+    font-size: 1.5rem;
+    padding-bottom: .25em;
+    margin: 1em 0 .5em 0;
+}
+
 h1 {
-    font-weight: 500;
+    border-bottom: 1px solid #80809F;
+}
+
+h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid #60607F;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: .9rem;
+}
+
+blockquote {
+    background-color: #20203F;
+    margin: .5em .5rem 1em .5rem;
+    padding: .8rem 1.2rem;
+    border-left: .2rem solid #EE588F;
+    border-radius: 0 .5rem .5rem 0;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+code {
+    font-size: .95rem;
+    font-family: 'Fira Code', monospace;
+    background-color: #00001F;
+    border: 1px solid #40405F;
+    border-radius: .2rem;
+    padding: .1rem .2rem;
+}
+
+pre {
+    background-color: #00001F;
+    border: 1px solid #40405F;
+    border-radius: .5rem;
+    margin: .5em 0 1em 0;
+    padding: .3rem .8rem;
+}
+
+pre code {
+    background-color: transparent;
+    border: 0 none transparent;
 }
 
 a {
@@ -76,11 +147,8 @@ a:hover {
     margin-bottom: 1rem;
 }
 
-.blog-post-body {
-    font-family: 'Lora', serif;
-}
-
 .blog-post-date {
+    font-family: 'Manrope', sans-serif;
     font-size: .85rem;
     font-weight: 600;
     text-transform: uppercase;
