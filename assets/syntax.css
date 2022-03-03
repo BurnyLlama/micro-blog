@@ -1,0 +1,152 @@
+.hljs-keyword {
+    color: #967CF4;
+}
+
+.hljs-built_in {
+    color: #72D661;
+}
+
+.hljs-type {
+    color: #F4C025;
+}
+
+.hljs-literal {
+    color: #EB801B;
+}
+
+.hljs-number {
+    color: #4C9CEF;
+}
+
+.hljs-punctuation {
+    color: #D0D0EF;
+}
+
+.hljs-property {
+    color: #4CDCDF;
+}
+
+.hljs-regexp {
+    color: #EF5255;
+}
+
+.hljs-string {
+    color: #F4C025;
+}
+
+.hljs-char.escape {
+    color: #4CDCDF;
+}
+
+.hljs-subst {
+    color: #E0E0FF;
+}
+
+.hljs-symbol {
+    color: #4C9CEF;
+}
+
+.hljs-variable {
+    color: #EB801B;
+}
+
+.hljs-variable.language {
+    color: #F4C025;
+}
+
+.hljs-variable.constant {
+    color: #EF5255;
+}
+
+.hljs-title {
+    color: #EF5255;
+}
+
+.hljs-title.class {
+    color: #4CDCDF;
+}
+
+.hljs-title.class.inherited {
+    color: #967CF4;
+}
+
+.hljs-title.function {
+    color: #4C9CEF;
+}
+
+.hljs-params {
+    color: #72D661;
+}
+
+.hljs-comment {
+    color: #80809F;
+    font-style: italic;
+}
+
+.hljs-doctag {
+    color: #F4C025;
+}
+
+.hljs-meta {
+    color: #4CDCDF;
+}
+
+.hljs-meta .hljs-keyword {
+    color: #4C6DEF;
+}
+
+.hljs-section {
+    color: #72D661;
+}
+
+.hljs-tag {
+    color: #EF5255;
+}
+
+.hljs-name {
+    color: #4C9CEF;
+}
+
+.hljs-attr {
+    color: #EB801B;
+}
+
+.hljs-attribute {
+    color: #72D661;
+}
+
+.hljs-selector-tag {
+    color: #EF5255;
+}
+
+.hljs-selector-id {
+    color: #4C9CEF;
+}
+
+.hljs-selector-class {
+    color: #EB801B;
+}
+
+.hljs-selector-attr {
+    color: #967CF4;
+}
+
+.hljs-selector-pseudo {
+    color: #72D661;
+}
+
+.hljs-template-tag {
+    color: #967CF4;
+}
+
+.hljs-template-variable {
+    color: #4CDCDF;
+}
+
+.hljs-addition {
+    color: #72D661;
+}
+
+.hljs-deletion {
+    color: #EF5255;
+}

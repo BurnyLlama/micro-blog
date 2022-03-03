@@ -37,9 +37,10 @@ aside {
 aside > h1 {
     font-weight: 100;
     margin: 1rem 0;
+    border-bottom: 0 none transparent;
 }
 
-.aside-links {
+nav {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -122,7 +123,8 @@ pre {
     padding: .3rem .8rem;
 }
 
-pre code {
+pre * {
+    font-family: 'Fira Code', monospace;
     background-color: transparent;
     border: 0 none transparent;
 }
@@ -143,6 +145,12 @@ a:hover {
     margin-bottom: 5rem;
 }
 
+.blog-post-title {
+    font-size: 2rem;
+    font-weight: 400;
+    border-bottom: 0 none transparent;
+}
+
 .blog-post > * {
     margin-bottom: 1rem;
 }
@@ -150,7 +158,7 @@ a:hover {
 .blog-post-date {
     font-family: 'Manrope', sans-serif;
     font-size: .85rem;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
 
     margin-top: 1rem;
@@ -160,22 +168,92 @@ a:hover {
 
 
 
+/* Control Panel */
+.info-box {
+    color: #00001F;
+    background-color: #3DDF89;
+    margin: .5em 0 1em 0;
+    padding: .3rem .8rem;
+}
+
+.info-box * {
+    margin: 0;
+}
+
+.error-box {
+    background-color: #EF5255;
+}
+
+label {
+    display: block;
+}
+
+textarea, input {
+    color: #E0E0FF;
+    background-color: #20203F;
+    border: .1rem solid #40405F;
+    border-radius: .5rem;
+
+    font-size: 1rem;
+    width: min(60%, 45ch);
+    margin: .5em 0 1em 0;
+    padding: .3rem .8rem;
+
+    transition: border-color .3s;
+}
+
+textarea {
+    overflow-x: auto;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+    resize: vertical;
+    width: 100%;
+    font-family: 'Fira Code', monospace;
+}
+
+textarea:hover, input:hover {
+    border-color: #4C9CEF;
+}
+
+textarea:active, textarea:focus, input:active, input:focus {
+    outline: .1rem solid #4C9CEF;
+}
+
+input[type=submit] {
+    width: unset;
+    padding: .4rem 1.2rem;
+    font-size: .9rem;
+    cursor: pointer;
+    color: #00001F;
+    background-color: #4C9CEF;
+    border-color: #4C9CEF;
+    transition: border-radius .3s;
+}
+
+input[type=submit]:hover {
+    border-radius: .75rem;
+}
+
+
+
 /* PHONE */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 799px) {
     body {
-        grid-template-columns: 1fr auto 1fr;
+        grid-template-columns: 1fr minmax(auto, 65ch) 1fr;
         grid-template-rows: auto auto;
         grid-template-areas: '. aside .' '. main .';
     }
 
     aside {
+        position: static;
         height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .aside-links {
+    nav {
         width: 100%;
         flex-direction: row;
         flex-wrap: wrap;

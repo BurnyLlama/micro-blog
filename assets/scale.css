@@ -1,0 +1,61 @@
+@media screen and (min-width: 1px) {
+    :root {
+        font-size: 11pt;
+    }
+
+}
+@media screen and (min-width: 300px) {
+    :root {
+        font-size: 12pt;
+    }
+}
+@media screen and (min-width: 400px) {
+    :root {
+        font-size: 12.5pt;
+    }
+}
+@media screen and (min-width: 500px) {
+    :root {
+        font-size: 13pt;
+    }
+}
+@media screen and (min-width: 600px) {
+    :root {
+        font-size: 14pt;
+    }
+}
+@media screen and (min-width: 700px) {
+    :root {
+        font-size: 15pt;
+    }
+}
+@media screen and (min-width: 800px) {
+    :root {
+        font-size: 10pt;
+    }
+}
+@media screen and (min-width: 1000px) {
+    :root {
+        font-size: 11pt;
+    }
+}
+@media screen and (min-width: 1500px) {
+    :root {
+        font-size: 12pt;
+    }
+}
+@media screen and (min-width: 1800px) {
+    :root {
+        font-size: 13pt;
+    }
+}
+@media screen and (min-width: 2500px) {
+    :root {
+        font-size: 16pt;
+    }
+}
+@media screen and (min-width: 3000px) {
+    :root {
+        font-size: 18pt;
+    }
+}

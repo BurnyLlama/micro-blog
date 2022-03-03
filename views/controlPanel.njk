@@ -1,26 +1,47 @@
 {% extends "templates/base.njk" %}
 
 {% block main %}
+        {% if success %}
+            <div class="info-box">
+                <p>{{ msg }}</p>
+            </div>
+        {% endif %}
+        {% if err %}
+            <div class="info-box error-box">
+                <p>{{ msg }}</p>
+                <pre><code>{{ err }}</code></pre>
+            </div>
+        {% endif %}
     <h1>Make a blog post</h1>
-    <form action="/control/set/aboutText" method="post">
-        <label for="about-text">About text:</label>
-        <textarea name="about-text" rows="10"></textarea>
-        <p class="hint">Did you know that the posts support markdown?</p>
+    <form action="/control/set/aboutText" enctype="multipart/form-data" method="post">
+        <label for="blog-post-title">Post title:</label>
+        <input name="blog-post-title" type="text">
+
+        <label for="blog-post-body">Post body:</label>
+        <textarea name="blog-post-body" rows="10"></textarea>
+        <p class="hint">Did you know that the posts support markdown and nunjucks?</p>
+
+        <label for="blog-post-image">Post image:</label>
+        <input type="file" name="blog-post-image">
+        <div class="image-preview"></div>
+
         <input type="submit" value="Post!">
     </form>
 
 
     <h1>Settings</h1>
-    <form action="/control/set/blogName" method="post">
+    <form action="/control/set/blogName" enctype="multipart/form-data" method="post">
+        <h2>Change blog name</h2>
         <label for="blog-name">Blog name:</label>
-        <input type="text" name="blog-name">
+        <input type="text" name="blog-name" value="{{ settings.blogName }}">
         <p class="hint">This is the name of the blog that gets displayed in multiple places.</p>
         <input type="submit" value="Save!">
     </form>
 
-    <form action="/control/set/aboutText" method="post">
+    <form action="/control/set/aboutText" enctype="multipart/form-data" method="post">
+        <h2>Change about text</h2>
         <label for="about-text">About text:</label>
-        <textarea name="about-text" rows="10"></textarea>
+        <textarea name="about-text" rows="10">{{ aboutText }}</textarea>
         <p class="hint">This is the text displayed <a href="/about">here</a>.</p>
         <input type="submit" value="Save!">
     </form>
