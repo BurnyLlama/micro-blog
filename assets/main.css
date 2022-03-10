@@ -121,6 +121,10 @@ pre {
     border-radius: .5rem;
     margin: .5em 0 1em 0;
     padding: .3rem .8rem;
+    overflow-x: auto;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
 }
 
 pre * {
