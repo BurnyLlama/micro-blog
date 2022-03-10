@@ -19,18 +19,18 @@ POSTS.post(
         const SETTINGS = JSON.parse((await fs.readFile("data/settings.json")).toString())
         const ABOUT_TEXT = (await fs.readFile("views/about.md")).toString()
 
-        const NO_TITLE     = req.body['blog-post-title']         ? false : true
-        const NO_BODY      = req.body['blog-post-body']          ? false : true
-        const NO_IMAGE     = req.file                            ? false : true
-        const NOT_AN_IMAGE = req.file?.mimetype?.match(/image/g) ? false : true
+        const NO_TITLE     = req.body['blog-post-title']                    ? false : true
+        const NO_BODY      = req.body['blog-post-body']                     ? false : true
+        const NO_IMAGE     = req.file                                       ? false : true
+        const NOT_AN_IMAGE = req.file && !req.file.mimetype.match(/image/g) ? true  : false
 
-        if (NO_TITLE || NO_BODY || NO_IMAGE || NOT_AN_IMAGE)
+        if (NO_TITLE || NO_BODY || NOT_AN_IMAGE)
             return res.render(
                 'controlPanel.njk',
                 {
                     success: false,
                     msg: "Missing field!",
-                    err: `${NO_TITLE ? "You forgot a title!\n" : ''}${NO_BODY ? "You forgot a text body!\n" : ''}${NO_IMAGE ? "You forgot an image!\n" : ''}${NOT_AN_IMAGE ? "File is not an image!" : ''}`,
+                    err: `${NO_TITLE ? "You forgot a title!\n" : ''}${NO_BODY ? "You forgot a text body!\n" : ''}${NOT_AN_IMAGE ? "File is not an image!" : ''}`,
                     settings: SETTINGS,
                     aboutText: ABOUT_TEXT,
                     blogPostTitle: req.body['blog-post-title'],
@@ -48,8 +48,6 @@ POSTS.post(
             niceTime: `${TIME.toLocaleDateString()} -- ${TIME.toLocaleTimeString()}`,
         }
 
-        const WEBP_IMAGE = await webp.buffer2webpbuffer(req.file.buffer, req.file.mimetype.replace("image/", ""), "-q 90")
-        await fs.writeFile(`./assets/images/${POST_ID}.webp`, WEBP_IMAGE)
         await fs.writeFile(`./views/posts/${POST_ID}.md`, req.body['blog-post-body'])
 
         const OLD_POST_JSON = (await fs.readFile("./data/posts.json")).toString()
@@ -59,14 +57,19 @@ POSTS.post(
         const NEW_POST_JSON = JSON.stringify(NEW_POST_DATA, null, 2)
         await fs.writeFile("./data/posts.json", NEW_POST_JSON)
 
-        return res.render(
+        res.render(
             'controlPanel.njk',
             {
                 success: true,
-                msg: "Successfully uploaded your post!",
+                msg: "Successfully uploaded your post! (Your image will be up momentarily...)",
                 settings: SETTINGS,
                 aboutText: ABOUT_TEXT,
             }
         )
+
+        if (NO_IMAGE) return;
+
+        const WEBP_BUFFER = await webp.buffer2webpbuffer(req.file.buffer, req.file.mimetype.replace("image/", ""), "-q 90")
+        await fs.writeFile(`./assets/images/${POST_ID}.webp`, WEBP_BUFFER)
     }
 )

@@ -14,16 +14,17 @@
     {% endif %}
     <h1>Make a blog post</h1>
     <form action="/posts/new" enctype="multipart/form-data" method="post">
-        <label for="blog-post-title">Post title:</label>
+        <label for="blog-post-title">Post title (required):</label>
         <input name="blog-post-title" type="text" value="{{ blogPostTitle }}">
 
-        <label for="blog-post-body">Post body:</label>
+        <label for="blog-post-body">Post body (required):</label>
         <textarea name="blog-post-body" rows="10">{{ blogPostBody }}</textarea>
         <p class="hint">Did you know that the posts support markdown and nunjucks?</p>
 
-        <label for="blog-post-image">Post image:</label>
+        <label for="blog-post-image">Post image (optional):</label>
         <input type="file" name="blog-post-image">
-        <div class="image-preview"></div>
+
+        <div class="post-preview"></div>
 
         <input type="submit" value="Post!">
     </form>
