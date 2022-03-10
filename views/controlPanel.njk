@@ -15,10 +15,10 @@
     <h1>Make a blog post</h1>
     <form action="/posts/new" enctype="multipart/form-data" method="post">
         <label for="blog-post-title">Post title:</label>
-        <input name="blog-post-title" type="text">
+        <input name="blog-post-title" type="text" value="{{ blogPostTitle }}">
 
         <label for="blog-post-body">Post body:</label>
-        <textarea name="blog-post-body" rows="10"></textarea>
+        <textarea name="blog-post-body" rows="10">{{ blogPostBody }}</textarea>
         <p class="hint">Did you know that the posts support markdown and nunjucks?</p>
 
         <label for="blog-post-image">Post image:</label>

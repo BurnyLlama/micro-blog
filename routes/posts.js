@@ -30,9 +30,11 @@ POSTS.post(
                 {
                     success: false,
                     msg: "Missing field!",
-                    err: `${NO_TITLE ? "You forgot a title!" : ''} ${NO_BODY ? "You forgot a text body!" : ''} ${NO_IMAGE ? "You forgot an image!" : ''} ${NOT_AN_IMAGE ? "File is not an image!" : ''}`,
+                    err: `${NO_TITLE ? "You forgot a title!\n" : ''}${NO_BODY ? "You forgot a text body!\n" : ''}${NO_IMAGE ? "You forgot an image!\n" : ''}${NOT_AN_IMAGE ? "File is not an image!" : ''}`,
                     settings: SETTINGS,
-                    aboutText: ABOUT_TEXT
+                    aboutText: ABOUT_TEXT,
+                    blogPostTitle: req.body['blog-post-title'],
+                    blogPostBody: req.body['blog-post-body'],
                 }
             )
 
@@ -63,7 +65,7 @@ POSTS.post(
                 success: true,
                 msg: "Successfully uploaded your post!",
                 settings: SETTINGS,
-                aboutText: ABOUT_TEXT
+                aboutText: ABOUT_TEXT,
             }
         )
     }

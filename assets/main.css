@@ -125,8 +125,10 @@ pre {
 
 pre * {
     font-family: 'Fira Code', monospace;
+    color: #D0D0EF;
     background-color: transparent;
     border: 0 none transparent;
+    padding: 0;
 }
 
 a {
@@ -185,7 +187,12 @@ hr {
     color: #00001F;
     background-color: #3DDF89;
     margin: .5em 0 1em 0;
-    padding: .3rem .8rem;
+    padding: .5rem 1rem;
+}
+
+.info-box > p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
 }
 
 .info-box * {
@@ -209,7 +216,7 @@ textarea, input {
     font-size: 1rem;
     width: min(60%, 45ch);
     margin: .5em 0 1em 0;
-    padding: .3rem .8rem;
+    padding: .5rem 1rem;
 
     transition: border-color .3s;
 }
