@@ -8,7 +8,7 @@ BLOG.get(
     (_, res) => {
         fs.readFile('./data/posts.json').then(
             file => {
-                const POSTS = JSON.parse(file.toString())
+                const POSTS = JSON.parse(file.toString()).reverse()
                 res.render('posts.njk', { posts: POSTS })
             }
         )

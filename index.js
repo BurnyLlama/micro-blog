@@ -1,7 +1,6 @@
 import express from 'express'
 import hljs from 'highlight.js'
 import { marked } from 'marked'
-import multer from 'multer'
 import njk from 'nunjucks'
 import njkMarkdown from 'nunjucks-markdown'
 import { ROUTES } from './routes/routes.js'
@@ -26,7 +25,6 @@ marked.use({
 
 njkMarkdown.register(NUNJUCKS_ENV, marked)
 
-SERVER.use(multer().none())
 
 SERVER.use('/assets', express.static('assets'))
 SERVER.use('/', ROUTES)

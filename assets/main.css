@@ -138,11 +138,20 @@ a:hover {
     color: #74B6FB;
 }
 
+hr {
+    border: 0 none transparent;
+    border-top: 1px solid #80809F;
+}
+
 
 
 /* Blog posts */
 .blog-post {
     margin-bottom: 5rem;
+}
+
+.blog-post > * {
+    margin-bottom: 1rem;
 }
 
 .blog-post-title {
@@ -151,8 +160,11 @@ a:hover {
     border-bottom: 0 none transparent;
 }
 
-.blog-post > * {
-    margin-bottom: 1rem;
+.blog-post-image {
+    height: 8rem;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 .blog-post-date {

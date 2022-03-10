@@ -1,8 +1,38 @@
 [
-    {
-        "title": "Post 1",
-        "file": "post1.md",
-        "time": "2022-02-18T12:01:36.809Z",
-        "niceTime": "18/02/2022 -- 12:01:36"
-    }
+  {
+    "id": "dd5db52c-359f-4e92-992e-d2e255125861$1646817980708",
+    "title": "My first post! (Again...)",
+    "time": "2022-03-09T09:26:20.708Z",
+    "niceTime": "2022-03-09 -- 10:26:20"
+  },
+  {
+    "id": "75f9a248-9cea-49a5-8a92-f1182a4d4ef6$1646818259029",
+    "title": "GNU/Linux Copypasta",
+    "time": "2022-03-09T09:30:59.029Z",
+    "niceTime": "2022-03-09 -- 10:30:59"
+  },
+  {
+    "id": "837cadd8-f117-4ed2-b303-8ad2bc7adde2$1646818470773",
+    "title": "Some ukraine copy-pasta",
+    "time": "2022-03-09T09:34:30.773Z",
+    "niceTime": "2022-03-09 -- 10:34:30"
+  },
+  {
+    "id": "7f6e312a-4f7f-477c-9b17-3a1a4d389a4d$1646818599352",
+    "title": "Part of my CSS",
+    "time": "2022-03-09T09:36:39.352Z",
+    "niceTime": "2022-03-09 -- 10:36:39"
+  },
+  {
+    "id": "fe55a188-89d2-47a6-bafe-46cbd11063e4$1646819316035",
+    "title": "Lektionsrapporter",
+    "time": "2022-03-09T09:48:36.035Z",
+    "niceTime": "2022-03-09 -- 10:48:36"
+  },
+  {
+    "id": "d498519a-e8a2-4537-a1e5-ca1eab9e6fa5$1646819512637",
+    "title": "Amazing cat videos!",
+    "time": "2022-03-09T09:51:52.637Z",
+    "niceTime": "2022-03-09 -- 10:51:52"
+  }
 ]

@@ -1,9 +1,9 @@
-{% macro post(title, mdFile, date) %}
+{% macro post(title, id, date) %}
     <div class="blog-post">
         <h1 class="blog-post-title">{{ title }}</h1>
-        <div style="height: 8rem; width: 100%; background-color: #B7EFF0;"></div>
+        <div class="blog-post-image" style="background-image: url('/assets/images/{{ id }}.webp');"></div>
         <div class="blog-post-body">
-            {% markdown "posts/" + mdFile %}
+            {% markdown "posts/" + id + ".md" %}
         </div>
         <p class="blog-post-date">{{ date }}</p>
     </div>

@@ -1,19 +1,19 @@
 {% extends "templates/base.njk" %}
 
 {% block main %}
-        {% if success %}
-            <div class="info-box">
-                <p>{{ msg }}</p>
-            </div>
-        {% endif %}
-        {% if err %}
-            <div class="info-box error-box">
-                <p>{{ msg }}</p>
-                <pre><code>{{ err }}</code></pre>
-            </div>
-        {% endif %}
+    {% if success %}
+        <div class="info-box">
+            <p>{{ msg }}</p>
+        </div>
+    {% endif %}
+    {% if err %}
+        <div class="info-box error-box">
+            <p>{{ msg }}</p>
+            <pre><code>{{ err }}</code></pre>
+        </div>
+    {% endif %}
     <h1>Make a blog post</h1>
-    <form action="/control/set/aboutText" enctype="multipart/form-data" method="post">
+    <form action="/posts/new" enctype="multipart/form-data" method="post">
         <label for="blog-post-title">Post title:</label>
         <input name="blog-post-title" type="text">
 

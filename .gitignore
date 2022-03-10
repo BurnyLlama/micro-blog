@@ -104,3 +104,9 @@ dist
 .tern-port
 
 pnpm-lock.yaml
+
+data/posts.json
+
+assets/images/*
+
+views/posts/*

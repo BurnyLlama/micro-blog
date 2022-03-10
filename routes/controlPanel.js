@@ -1,7 +1,10 @@
 import { Router } from 'express'
 import fs from 'fs/promises'
+import multer from 'multer'
 
 export const CONTROL_PANEL = Router()
+
+CONTROL_PANEL.use(multer().none())
 
 CONTROL_PANEL.get(
     '/',
