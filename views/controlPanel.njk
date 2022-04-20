@@ -24,7 +24,8 @@
         <label for="blog-post-image">Post image (optional):</label>
         <input type="file" name="blog-post-image">
 
-        <div class="post-preview"></div>
+        <label for="password">Admin passowrd:</label>
+        <input type="password" name="password">
 
         <input type="submit" value="Post!">
     </form>
@@ -36,6 +37,10 @@
         <label for="blog-name">Blog name:</label>
         <input type="text" name="blog-name" value="{{ settings.blogName }}">
         <p class="hint">This is the name of the blog that gets displayed in multiple places.</p>
+
+        <label for="password">Admin passowrd:</label>
+        <input type="password" name="password">
+
         <input type="submit" value="Save!">
     </form>
 
@@ -44,6 +49,10 @@
         <label for="about-text">About text:</label>
         <textarea name="about-text" rows="10">{{ aboutText }}</textarea>
         <p class="hint">This is the text displayed <a href="/about">here</a>.</p>
+
+        <label for="password">Admin passowrd:</label>
+        <input type="password" name="password">
+
         <input type="submit" value="Save!">
     </form>
 {% endblock %}

@@ -3,6 +3,7 @@ import { Router } from 'express'
 import { randomUUID } from 'crypto'
 import multer from 'multer'
 import webp from 'webp-converter'
+import { verifyPass } from './controlPanel.js'
 
 
 // Make sure webp has the permissions it needs and that a temp directory exists
@@ -37,6 +38,9 @@ POSTS.post(
                     blogPostBody: req.body['blog-post-body'],
                 }
             )
+
+        if (!await verifyPass(req.body.password ?? ''))
+            return res.render('controlPanel.njk', { success: false, msg: "Wrong admin password!", err: true, settings: SETTINGS, aboutText: ABOUT_TEXT })
 
         const TIME = new Date(Date.now())
         const POST_ID = `${randomUUID()}$${TIME.valueOf()}`
