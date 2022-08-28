@@ -1,5 +1,5 @@
-import { Router } from 'express'
+import { Router } from "express"
 
 export const ABOUT = Router()
 
-ABOUT.get('/', (_, res) => res.render('about.njk'))
+ABOUT.get("/", (_, res) => res.render("about.njk"))
