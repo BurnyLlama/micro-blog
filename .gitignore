@@ -106,8 +106,8 @@ dist
 pnpm-lock.yaml
 package-lock.json
 
-data/settings.json
-data/posts.json
+data
+data/*
 
 assets/images/*
 

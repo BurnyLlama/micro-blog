@@ -12,6 +12,7 @@ await setup()
 const SERVER = express()
 const SETTINGS = JSON.parse((await fs.readFile("data/settings.json")).toString())
 
+// Set up Nunjucks...
 const NUNJUCKS_ENV = njk.configure(
     "views",
     {
@@ -23,11 +24,11 @@ const NUNJUCKS_ENV = njk.configure(
     }
 )
 
+// Set up markdown...
 marked.use({
     gfm: true,
     highlight: (code, lang) => hljs.highlight(code, { language: hljs.getLanguage(lang) ? lang : "plaintext" }).value
 })
-
 njkMarkdown.register(NUNJUCKS_ENV, marked)
 
 
