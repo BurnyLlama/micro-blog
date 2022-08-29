@@ -5,6 +5,10 @@
         <div class="blog-post-body">
             {% markdown %}{{ text }}{% endmarkdown %}
         </div>
-        <p class="blog-post-date">{{ niceTime }}</p>
+        <div class="blog-post-info">
+            <p class="blog-post-date">{{ niceTime }}</p>
+            <span class="separator">&bullet;</span>
+            <a class="blog-post-link" href="/posts/{{ id }}">Permalink</a>
+        </div>
     </div>
 {% endmacro %}

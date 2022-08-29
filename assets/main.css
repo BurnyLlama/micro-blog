@@ -174,17 +174,35 @@ hr {
     background-size: cover;
 }
 
-.blog-post-date {
+.blog-post-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    border-top: 1px solid #D0D0EF;
+    padding-top: .3rem;
+}
+
+.blog-post-info > * {
     font-family: 'Manrope', sans-serif;
     font-size: .85rem;
     font-weight: 500;
-    text-transform: uppercase;
-
-    margin-top: 1rem;
-    border-top: 2px solid #E0E0FF;
-    padding-top: .5rem;
+    margin: auto 0;
+    color: #80809F;
 }
 
+.blog-post-info > span.separator {
+    display: block;
+    margin: 0 .25rem;
+    color: #60607F;
+}
+
+.blog-post-date {
+    text-transform: uppercase;
+}
+
+.blog-post-link {
+    text-decoration: none;
+}
 
 
 /* Control Panel */

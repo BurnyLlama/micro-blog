@@ -13,6 +13,16 @@ await fs.access("./node_modules/webp-converter/temp")
 
 export const POSTS = Router()
 
+POSTS.get(
+    "/:id",
+    (req, res) => res.render(
+        "posts.njk",
+        {
+            posts: [Post.get(req.params.id)]
+        }
+    )
+)
+
 POSTS.post(
     "/new",
     multer({ storage: multer.memoryStorage() }).single("blog-post-image"),
