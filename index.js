@@ -1,4 +1,5 @@
 import express from "express"
+import rateLimit from "express-rate-limit"
 import fs from "fs/promises"
 import hljs from "highlight.js"
 import { marked } from "marked"
@@ -28,9 +29,13 @@ marked.use({
 })
 njkMarkdown.register(NUNJUCKS_ENV, marked)
 
+const RATE_LIMIT = rateLimit({
+    windowMs: 5000,
+    max: 10,
+})
 
-SERVER.use("/assets", express.static("assets"))
-SERVER.use("/", ROUTES)
+SERVER.use("/assets", RATE_LIMIT, express.static("assets"))
+SERVER.use("/", RATE_LIMIT, ROUTES)
 
 SERVER.listen(
     SETTINGS.port,
