@@ -5,9 +5,6 @@ import { marked } from "marked"
 import njk from "nunjucks"
 import njkMarkdown from "nunjucks-markdown"
 import { ROUTES } from "./routes/routes.js"
-import setup from "./setup.js"
-
-await setup()
 
 const SERVER = express()
 const SETTINGS = JSON.parse((await fs.readFile("data/settings.json")).toString())
