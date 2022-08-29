@@ -34,7 +34,12 @@ const RATE_LIMIT = rateLimit({
     max: 10,
 })
 
-SERVER.use("/assets", RATE_LIMIT, express.static("assets"))
+const ASSETS_RATE_LIMIT = rateLimit({
+    windowMs: 500,
+    max: 20,
+})
+
+SERVER.use("/assets", ASSETS_RATE_LIMIT, express.static("assets"))
 SERVER.use("/", RATE_LIMIT, ROUTES)
 
 SERVER.listen(
