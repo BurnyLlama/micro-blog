@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/fonts.css">
-    <link rel="stylesheet" href="/assets/main.css">
-    <link rel="stylesheet" href="/assets/scale.css">
-    <link rel="stylesheet" href="/assets/syntax.css">
+    <link rel="preload" href="/assets/fonts.css" as="style">
+    <link rel="preload" href="/assets/main.css" as="style">
+    <link rel="preload" href="/assets/scale.css" as="style">
+    <link rel="preload" href="/assets/syntax.css" as="style">
+    <link rel="stylesheet" href="/assets/fonts.css" defer>
+    <link rel="stylesheet" href="/assets/main.css" defer>
+    <link rel="stylesheet" href="/assets/scale.css" defer>
+    <link rel="stylesheet" href="/assets/syntax.css" defer>
 
     {% block head %}
         <title>{% include "templates/blogName.njk" %}</title>
