@@ -5,13 +5,11 @@ import { marked } from "marked"
 import njk from "nunjucks"
 import njkMarkdown from "nunjucks-markdown"
 import { ROUTES } from "./routes/routes.js"
-import setup from "./setup.js"
-
-await setup()
 
 const SERVER = express()
 const SETTINGS = JSON.parse((await fs.readFile("data/settings.json")).toString())
 
+// Set up Nunjucks...
 const NUNJUCKS_ENV = njk.configure(
     "views",
     {
@@ -23,11 +21,11 @@ const NUNJUCKS_ENV = njk.configure(
     }
 )
 
+// Set up markdown...
 marked.use({
     gfm: true,
     highlight: (code, lang) => hljs.highlight(code, { language: hljs.getLanguage(lang) ? lang : "plaintext" }).value
 })
-
 njkMarkdown.register(NUNJUCKS_ENV, marked)
 
 

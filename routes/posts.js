@@ -1,8 +1,8 @@
-import { randomUUID } from "crypto"
 import { Router } from "express"
 import fs from "fs/promises"
 import multer from "multer"
 import webp from "webp-converter"
+import Post from "../models/Post.js"
 import { verifyPass } from "./controlPanel.js"
 
 
@@ -12,6 +12,16 @@ await fs.access("./node_modules/webp-converter/temp")
     .catch(async () => await fs.mkdir("./node_modules/webp-converter/temp"))
 
 export const POSTS = Router()
+
+POSTS.get(
+    "/:id",
+    (req, res) => res.render(
+        "posts.njk",
+        {
+            posts: [Post.get(req.params.id)]
+        }
+    )
+)
 
 POSTS.post(
     "/new",
@@ -42,24 +52,8 @@ POSTS.post(
         if (!await verifyPass(req.body.password ?? ""))
             return res.render("controlPanel.njk", { success: false, msg: "Wrong admin password!", err: true, settings: SETTINGS, aboutText: ABOUT_TEXT })
 
-        const TIME = new Date(Date.now())
-        const POST_ID = `${randomUUID()}$${TIME.valueOf()}`
-
-        const POST = {
-            id: POST_ID,
-            title: req.body["blog-post-title"],
-            time: TIME,
-            niceTime: `${TIME.toLocaleDateString()} -- ${TIME.toLocaleTimeString()}`,
-        }
-
-        await fs.writeFile(`./views/posts/${POST_ID}.md`, req.body["blog-post-body"])
-
-        const OLD_POST_JSON = (await fs.readFile("./data/posts.json")).toString()
-        const OLD_POST_DATA = JSON.parse(OLD_POST_JSON ? OLD_POST_JSON : "[]")
-
-        const NEW_POST_DATA = [...OLD_POST_DATA, POST]
-        const NEW_POST_JSON = JSON.stringify(NEW_POST_DATA, null, 2)
-        await fs.writeFile("./data/posts.json", NEW_POST_JSON)
+        const POST = Post.create(req.body["blog-post-title"], req.body["blog-post-body"])
+        Post.save(POST)
 
         res.render(
             "controlPanel.njk",
@@ -74,6 +68,6 @@ POSTS.post(
         if (NO_IMAGE) return
 
         const WEBP_BUFFER = await webp.buffer2webpbuffer(req.file.buffer, req.file.mimetype.replace("image/", ""), "-q 90")
-        await fs.writeFile(`./assets/images/${POST_ID}.webp`, WEBP_BUFFER)
+        await fs.writeFile(`./assets/images/${POST.id}.webp`, WEBP_BUFFER)
     }
 )

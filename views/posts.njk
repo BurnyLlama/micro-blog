@@ -3,6 +3,6 @@
 
 {% block main %}
     {% for post in posts %}
-        {{ blogPost.post(post.title, post.id, post.niceTime) }}
+        {{ blogPost.post(post.id,post.title, post.text, post.niceTime) }}
     {% endfor %}
 {% endblock %}
