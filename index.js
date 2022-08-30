@@ -6,6 +6,7 @@ import { marked } from "marked"
 import njk from "nunjucks"
 import njkMarkdown from "nunjucks-markdown"
 import { ROUTES } from "./routes/routes.js"
+import generateRSS from "./generateRSS.js"
 
 const SERVER = express()
 const SETTINGS = JSON.parse((await fs.readFile("data/settings.json")).toString())
@@ -41,6 +42,10 @@ const ASSETS_RATE_LIMIT = rateLimit({
 
 SERVER.use("/assets", ASSETS_RATE_LIMIT, express.static("assets"))
 SERVER.use("/", RATE_LIMIT, ROUTES)
+SERVER.get("/rss.xml", (_, res) => {
+
+    res.setHeader("Content-Type", "application/rss+xml").send(generateRSS())
+})
 
 SERVER.listen(
     SETTINGS.port,

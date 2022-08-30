@@ -47,7 +47,16 @@ const Post = {
      * @returns {void}
      */
     save: post => db.prepare("INSERT INTO posts (id, title, text, time, niceTime) VALUES ($id, $title, $text, $time, $niceTime)").run(post),
+    /**
+     * Gets a single post from the database.
+     * @param {string} id The id of the post to get.
+     * @returns
+     */
     get: id => db.prepare("SELECT * FROM posts WHERE id = ?").get(id),
+    /**
+     * Gets all the posts in the database.
+     * @returns {Array<Post>}
+     */
     getAll: () => db.prepare("SELECT * FROM posts ORDER BY time DESC").all(),
 }
 
