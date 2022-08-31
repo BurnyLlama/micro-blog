@@ -33,7 +33,7 @@
         <label for="blog-post-image">Post image (optional):</label>
         <input type="file" name="blog-post-image">
 
-        <label for="password">Admin passowrd:</label>
+        <label for="password">Admin password:</label>
         <input type="password" name="password">
 
         <input type="submit" value="Post!">
@@ -44,10 +44,10 @@
     <form action="/control/set/blogName" enctype="multipart/form-data" method="post">
         <h2>Change blog name</h2>
         <label for="blog-name">Blog name:</label>
-        <input type="text" name="blog-name" value="{{ settings.blogName }}">
+        <input type="text" name="blog-name" value="{% include "templates/blogName.njk" %}">
         <p class="hint">This is the name of the blog that gets displayed in multiple places.</p>
 
-        <label for="password">Admin passowrd:</label>
+        <label for="password">Admin password:</label>
         <input type="password" name="password">
 
         <input type="submit" value="Save!">
@@ -59,7 +59,7 @@
         <textarea name="about-text" rows="10">{{ aboutText }}</textarea>
         <p class="hint">This is the text displayed <a href="/about">here</a>.</p>
 
-        <label for="password">Admin passowrd:</label>
+        <label for="password">Admin password:</label>
         <input type="password" name="password">
 
         <input type="submit" value="Save!">
