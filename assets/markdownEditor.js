@@ -20,6 +20,9 @@ textarea.addEventListener(
     }
 )
 
+// Run an initial event...
+textarea.dispatchEvent(new Event("input"))
+
 textarea.addEventListener("scroll", () => {
     preview.scrollTop = textarea.scrollTop
 })
