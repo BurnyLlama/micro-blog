@@ -1,0 +1,130 @@
+.info-box {
+    color: #00001F;
+    background-color: #3DDF89;
+    margin: .5em 0 1em 0;
+    padding: .5rem 1rem;
+}
+
+.info-box > p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+}
+
+.info-box * {
+    margin: 0;
+}
+
+.error-box {
+    background-color: #EF5255;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+}
+
+textarea, input, #markdown-preview {
+    color: #E0E0FF;
+    background-color: #20203F;
+    border: .1rem solid #40405F;
+    border-radius: .5rem;
+
+    font-size: 1rem;
+    width: min(60%, 45ch);
+    margin: .5em 0 1em 0;
+    padding: .5rem 1rem;
+
+    transition: border-color .3s;
+}
+
+textarea:hover, input:hover {
+    border-color: #4C9CEF;
+}
+
+textarea:active, textarea:focus, input:active, input:focus {
+    outline: .1rem solid #4C9CEF;
+}
+
+input[type=submit] {
+    width: unset;
+    padding: .4rem 1.2rem;
+    font-size: .9rem;
+    cursor: pointer;
+    color: #00001F;
+    background-color: #4C9CEF;
+    border-color: #4C9CEF;
+    transition: border-radius .3s;
+}
+
+input[type=submit]:hover {
+    border-radius: .75rem;
+}
+
+#markdown-editor {
+    position: relative;
+    height: 50vh;
+    background-color: #20203F;
+    border: .1rem solid #40405F;
+    border-radius: .5rem;
+}
+
+#blog-post-body, #markdown-preview {
+    overflow-wrap: break-word;
+    overflow-x: visible;
+    overflow-y: auto;
+    resize: none;
+    width: 100%;
+    font-family: 'Manrope', 'Fira Code', monospace;
+
+    background-color: transparent;
+    border: 0 none transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+
+    padding: .5rem 1rem .5rem 2rem;
+}
+
+pre {
+    background-color: transparent;
+    border: 0 none transparent;
+    white-space: pre-wrap;
+}
+
+#blog-post-body {
+    caret-color: #4C9CEF;
+    z-index: 2;
+}
+
+#markdown-preview {
+    z-index: 1;
+}
+
+#markdown-preview * {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+#markdown-preview span.muted {
+    color: #40405F;
+}
+
+#markdown-preview span.line {
+    counter-increment: line-numbers;
+    position: relative;
+}
+
+#markdown-preview span.line::before {
+    color: #40405F;
+    content: counter(line-numbers);
+    position: absolute;
+    right: 100%;
+    margin-right: .5rem;
+}

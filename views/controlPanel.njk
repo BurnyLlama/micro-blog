@@ -1,5 +1,11 @@
 {% extends "templates/base.njk" %}
 
+{% block head %}
+    <link rel="stylesheet" href="/assets/controlPanel.css">
+    <script src="/assets/markdownEditor.js" defer type="module"></script>
+    <title>Control panel</title>
+{% endblock %}
+
 {% block main %}
     {% if success %}
         <div class="info-box">
@@ -18,7 +24,10 @@
         <input name="blog-post-title" type="text" value="{{ blogPostTitle }}">
 
         <label for="blog-post-body">Post body (required):</label>
-        <textarea name="blog-post-body" rows="10">{{ blogPostBody }}</textarea>
+        <div id="markdown-editor">
+            <textarea name="blog-post-body" id="blog-post-body" rows="10">{{ blogPostBody }}</textarea>
+            <pre><code id="markdown-preview"></code></pre>
+        </div>
         <p class="hint">Did you know that the posts support markdown and nunjucks?</p>
 
         <label for="blog-post-image">Post image (optional):</label>
