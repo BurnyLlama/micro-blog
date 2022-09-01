@@ -53,3 +53,67 @@
     font-display: swap;
     src: url(/assets/fonts/Manrope-ExtraBold.ttf);
 }
+
+@font-face {
+    font-family: "Lora";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/assets/fonts/Lora-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Lora";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(/assets/fonts/Lora-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Lora";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/assets/fonts/Lora-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Lora";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/assets/fonts/Lora-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Lora";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/assets/fonts/Lora-Italic.ttf);
+}
+
+@font-face {
+    font-family: "Lora";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url(/assets/fonts/Lora-MediumItalic.ttf);
+}
+
+@font-face {
+    font-family: "Lora";
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/assets/fonts/Lora-SemiBoldItalic.ttf);
+}
+
+@font-face {
+    font-family: "Lora";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/assets/fonts/Lora-BoldItalic.ttf);
+}
