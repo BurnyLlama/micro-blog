@@ -204,6 +204,14 @@ hr {
     text-decoration: none;
 }
 
+span.highlight {
+    color: #10102F;
+    background-color: #FFD147;
+    padding: 0 .3em;
+}
+
+
+
 /* PHONE */
 @media screen and (max-width: 799px) {
     body {

@@ -1,0 +1,21 @@
+{% extends "templates/base.njk" %}
+{% import "templates/post.njk" as blogPost %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/controlPanel.css">
+{% endblock %}
+
+{% block main %}
+    <form action="/search" method="get">
+        <input type="text" name="q" value="{{ query}}">
+        <input type="submit" value="Search!">
+    </form>
+
+    {% if not results[0] %}
+        <p>Found no search results... Try searching for something else!</p>
+    {% endif %}
+
+    {% for post in results %}
+        {{ blogPost.post(post.id, post.title, post.text, post.niceTime) }}
+    {% endfor %}
+{% endblock %}

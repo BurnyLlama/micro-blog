@@ -14,6 +14,11 @@ db.prepare(`
         niceTime TEXT      DEFAULT ''
     )
 `).run()
+db.prepare(`
+    CREATE VIRTUAL TABLE IF NOT EXISTS posts_search_table
+    USING FTS5(id, title, text, niceTime)
+`).run()
+
 
 /**
  * @typedef  {object} Post
@@ -46,7 +51,10 @@ const Post = {
      * @param {Post} post The post to save.
      * @returns {void}
      */
-    save: post => db.prepare("INSERT INTO posts (id, title, text, time, niceTime) VALUES ($id, $title, $text, $time, $niceTime)").run(post),
+    save: post => {
+        db.prepare("INSERT INTO posts (id, title, text, time, niceTime) VALUES ($id, $title, $text, $time, $niceTime)").run(post)
+        db.prepare("INSERT INTO posts_search_table (id, title, text, niceTime) VALUES ($id, $title, $text, $niceTime)").run(post)
+    },
     /**
      * Gets a single post from the database.
      * @param {string} id The id of the post to get.
@@ -58,6 +66,16 @@ const Post = {
      * @returns {Array<Post>}
      */
     getAll: () => db.prepare("SELECT * FROM posts ORDER BY time DESC").all(),
+    search: query => db.prepare(`
+        SELECT
+            id,
+            highlight(posts_search_table, 1, '<span class="highlight">', '</span>') title,
+            highlight(posts_search_table, 2, '<span class="highlight">', '</span>') text,
+            niceTime
+        FROM posts_search_table
+        WHERE posts_search_table MATCH ?
+        ORDER BY rank
+    `).all(query)
 }
 
 export default Post
