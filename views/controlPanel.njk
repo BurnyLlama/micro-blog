@@ -24,11 +24,11 @@
         <input name="blog-post-title" type="text" value="{{ blogPostTitle }}">
 
         <label for="blog-post-body">Post body (required):</label>
-        <div id="markdown-editor">
+        <div class="markdown-editor">
             <textarea name="blog-post-body" id="blog-post-body" rows="10">{{ blogPostBody }}</textarea>
-            <pre><code id="markdown-preview"></code></pre>
+            <pre><code class="markdown-preview" id="blog-post-preview"></code></pre>
         </div>
-        <p class="hint">Did you know that the posts support markdown and nunjucks?</p>
+        <p class="hint">Blog posts support markdown and nunjucks.</p>
 
         <label for="blog-post-image">Post image (optional):</label>
         <input type="file" name="blog-post-image">
@@ -56,7 +56,10 @@
     <form action="/control/set/aboutText" enctype="multipart/form-data" method="post">
         <h2>Change about text</h2>
         <label for="about-text">About text:</label>
-        <textarea name="about-text" rows="10">{{ aboutText }}</textarea>
+        <div class="markdown-editor">
+            <textarea name="blog-post-body" id="about-text" rows="10">{{ aboutText }}</textarea>
+            <pre><code class="markdown-preview" id="about-text-preview"></code></pre>
+        </div>
         <p class="hint">This is the text displayed <a href="/about">here</a>.</p>
 
         <label for="password">Admin password:</label>

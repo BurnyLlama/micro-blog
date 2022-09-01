@@ -27,7 +27,7 @@ label {
     display: block;
 }
 
-textarea, input, #markdown-preview {
+textarea, input, .markdown-preview {
     color: #E0E0FF;
     background-color: #20203F;
     border: .1rem solid #40405F;
@@ -37,6 +37,9 @@ textarea, input, #markdown-preview {
     width: min(60%, 45ch);
     margin: .5em 0 1em 0;
     padding: .5rem 1rem;
+
+    caret-color: #4C9CEF;
+    z-index: 2;
 
     transition: border-color .3s;
 }
@@ -64,7 +67,7 @@ input[type=submit]:hover {
     border-radius: .75rem;
 }
 
-#markdown-editor {
+.markdown-editor {
     position: relative;
     height: 50vh;
     background-color: #20203F;
@@ -72,13 +75,13 @@ input[type=submit]:hover {
     border-radius: .5rem;
 }
 
-#blog-post-body, #markdown-preview {
+textarea, .markdown-preview {
     overflow-wrap: break-word;
     overflow-x: visible;
     overflow-y: auto;
     resize: none;
     width: 100%;
-    font-family: 'Manrope', 'Fira Code', monospace;
+    font-family: 'Lora', 'Fira Code', monospace;
 
     background-color: transparent;
     border: 0 none transparent;
@@ -98,33 +101,31 @@ pre {
     white-space: pre-wrap;
 }
 
-#blog-post-body {
-    caret-color: #4C9CEF;
-    z-index: 2;
-}
-
-#markdown-preview {
+.markdown-preview {
     z-index: 1;
 }
 
-#markdown-preview * {
+.markdown-preview * {
     font-size: inherit;
     font-family: inherit;
 }
 
-#markdown-preview span.muted {
+.markdown-preview span.muted {
     color: #40405F;
 }
 
-#markdown-preview span.line {
+.markdown-preview span.line {
     counter-increment: line-numbers;
     position: relative;
 }
 
-#markdown-preview span.line::before {
+.markdown-preview span.line::before {
     color: #40405F;
     content: counter(line-numbers);
     position: absolute;
     right: 100%;
     margin-right: .5rem;
+    font-family: 'Fira Code', monospace;
+    font-size: .8rem;
+    top: .1rem;
 }
