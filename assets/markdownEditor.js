@@ -12,10 +12,18 @@ function setupMarkdownEditor(textarea, preview) {
             const currentText = textarea.value
 
             const syntaxHighlighted = currentText
-                // This is important for scrolling...
-                .replace(/\n$/, "\n ")
                 // This is for headings...
                 .replace(/^(#+)(?= )/gm, "<span class=\"muted\">$&</span>")
+                // This is for code blocks and such.
+                .replace(/^```\w*$/gm, "<span class=\"muted\">$&</span>")
+                .replace(/`(?!`+)/g, "<span class=\"muted\">$&</span>")
+                // Block quotes
+                .replace(/^>/gm, "<span class=\"muted\">$&</span>")
+                // This is for bolf and italic.
+                .replace(/[*_]+/g, "<span class=\"muted\">$&</span>")
+                // This is important for scrolling...
+                .replace(/\n$/, "\n ")
+                // This just creates lines.
                 .replace(/^/gm, "<span class=\"line\">")
                 .replace(/$/gm, "</span>")
 

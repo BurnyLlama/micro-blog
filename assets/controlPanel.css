@@ -18,11 +18,6 @@
     background-color: #EF5255;
 }
 
-form {
-    /* display: flex;
-    flex-direction: column; */
-}
-
 label {
     display: block;
 }
@@ -81,7 +76,7 @@ textarea, .markdown-preview {
     overflow-y: auto;
     resize: none;
     width: 100%;
-    font-family: 'Lora', 'Fira Code', monospace;
+    font-family: 'Fira Code', monospace;
 
     background-color: transparent;
     border: 0 none transparent;
@@ -111,7 +106,7 @@ pre {
 }
 
 .markdown-preview span.muted {
-    color: #40405F;
+    color: #60607F;
 }
 
 .markdown-preview span.line {
