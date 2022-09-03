@@ -158,6 +158,14 @@ pre {
     color: #70708F;
 }
 
+.markdown-preview .horisontal-rule {
+    color: #70708F;
+    display: inline-block;
+    width: 100%;
+    border-bottom: .1rem solid #40405F;
+    height: .8rem;
+}
+
 .line-numbers {
     z-index: 1;
     background-color: transparent;
