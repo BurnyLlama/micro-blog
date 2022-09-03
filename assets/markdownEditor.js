@@ -12,6 +12,11 @@ function setupMarkdownEditor(textarea, preview, lineNumbers) {
         "input",
         () => {
             const currentText = textarea.value
+                // Make sure to not interpret HTML...
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
 
             const syntaxHighlighted = currentText
                 // This is for headings...
@@ -22,7 +27,7 @@ function setupMarkdownEditor(textarea, preview, lineNumbers) {
                 .replace(/(?<=\s)`(\S|\S.*?\S)`(?=\s|$)/gm, "<span class=\"code\">$&</span>")
                 .replace(/`(?!`+)/g, "<span class=\"muted\">$&</span>")
                 // Block quotes
-                .replace(/^>/gm, "<span class=\"blockquote\">$&</span>")
+                .replace(/^&gt;/gm, "<span class=\"blockquote\">$&</span>")
                 // This is for bold and italic beginnings.
                 .replace(/[_*]+(?=[^_*\s])/g, match => {
                     const length = match.length >= 3 ? 3     : match.length
