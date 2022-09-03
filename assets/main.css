@@ -206,8 +206,14 @@ hr {
 
 span.highlight {
     color: #10102F;
-    background-color: #FFD147;
-    padding: 0 .3em;
+    background-color: #4CDCDF;
+    padding: 0 .2em;
+}
+
+span.highlight > span.highlight {
+    padding: 0 .05em;
+    margin: 0 .05em;
+    background-color: #967CF4;
 }
 
 
