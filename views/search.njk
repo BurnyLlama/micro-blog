@@ -12,6 +12,11 @@
         <input type="text" name="q" value="{{ query}}">
         <input type="submit" value="Search!">
         <p>You can search using regexes.</p>
+        {% if invalidRegexp %}
+            <div class="info-box error-box">
+                <p>Error! It seems you've entered and invalid regex/search term!</p>
+            </div>
+        {% endif %}
     </form>
 
     <h1>Results...</h1>

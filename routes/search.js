@@ -8,6 +8,12 @@ SEARCH.get("/", (req, res) => {
     if (!query)
         return res.render("search.njk")
 
+    try {
+        new RegExp(query)
+    } catch (error) {
+        return res.render("search.njk", { query, invalidRegexp: true})
+    }
+
     const results = Post.search(query)
         .map(e => {
             return Object.assign(
