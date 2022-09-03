@@ -16,6 +16,6 @@
     {% endif %}
 
     {% for post in results %}
-        {{ blogPost.post(post.id, post.title, post.text, post.niceTime) }}
+        {{ blogPost.post(post.id, post.title, post.title_id, post.text, post.niceTime) }}
     {% endfor %}
 {% endblock %}

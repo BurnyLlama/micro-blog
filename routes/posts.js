@@ -14,11 +14,11 @@ await fs.access("./node_modules/webp-converter/temp")
 export const POSTS = Router()
 
 POSTS.get(
-    "/:id",
+    "/:id/:title_id",
     (req, res) => res.render(
         "posts.njk",
         {
-            posts: [Post.get(req.params.id)]
+            posts: [Post.get(req.params.id, req.params.title_id)]
         }
     )
 )

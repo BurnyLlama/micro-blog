@@ -9,5 +9,6 @@ SEARCH.get("/", (req, res) => {
         return res.render("search.njk")
 
     const results = Post.search(query)
+    console.log(results)
     res.render("search.njk", { query, results })
 })

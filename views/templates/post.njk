@@ -1,4 +1,4 @@
-{% macro post(id, title, text, niceTime) %}
+{% macro post(id, title, title_id, text, niceTime) %}
     <div class="blog-post" id="{{ id }}">
         <h1 class="blog-post-title">{{ title | safe }}</h1>
         <div class="blog-post-image" style="background-image: url('/assets/images/{{ id }}.webp');"></div>
@@ -8,7 +8,7 @@
         <div class="blog-post-info">
             <p class="blog-post-date">{{ niceTime }}</p>
             <span class="separator">&bullet;</span>
-            <a class="blog-post-link" href="/posts/{{ id }}">Permalink</a>
+            <a class="blog-post-link" href="/posts/{{ id }}/{{ title_id }}">Permalink</a>
         </div>
     </div>
 {% endmacro %}
