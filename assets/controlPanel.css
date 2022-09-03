@@ -148,6 +148,12 @@ pre {
     margin: 0;
 }
 
+.markdown-preview .link {
+    color: #4C9CEF;
+    text-decoration: underline;
+
+}
+
 
 .line-numbers {
     z-index: 1;

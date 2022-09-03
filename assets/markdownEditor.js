@@ -39,6 +39,8 @@ function setupMarkdownEditor(textarea, preview, lineNumbers) {
                 })
                 // This is for bold and italic.
                 .replace(/[*_]+/g, "<span class=\"bold-italic\">$&</span>")
+                // Links
+                .replace(/https?:\/\/\S+\.\S+/gm, "<span class=\"link\">$&</span>")
                 // This is important for scrolling...
                 .replace(/\n$/, "\n ")
 
