@@ -136,11 +136,16 @@ pre {
     color: #70708F;
 }
 
+.markdown-preview .code-block .lang {
+    color: #EB801B;
+}
+
 .markdown-preview .code-block {
     display: inline-block;
     background-color: #00001F;
     /* position: relative; */
     width: 100%;
+    margin: 0;
 }
 
 

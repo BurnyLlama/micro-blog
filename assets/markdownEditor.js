@@ -1,3 +1,5 @@
+import hljs from "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/highlight.min.js"
+
 /**
  * Sets up a markdown editor
  * @param {Element} textarea The element to get the text from.
@@ -14,9 +16,9 @@ function setupMarkdownEditor(textarea, preview, lineNumbers) {
             const syntaxHighlighted = currentText
                 // This is for headings...
                 .replace(/^(#+)(?= )/gm, "<span class=\"heading\">$&</span>")
-                // This is for code blocks and such.
-                .replace(/^```\w*\n[\s\S]+?```$/gm, "<span class=\"code-block\">$&</span>")
-                .replace(/^```\w*$/gm, "<span class=\"muted\">$&</span>")
+                // This is for code blocks.
+                .replace(/^(```)(\w*)(\n[\s\S]*?\n)(```)$/gm, "<span class=\"code-block\"><span class=\"muted\">$1</span><span class=\"lang\">$2</span><span class=\"hljs language-$2\">$3</span><span class=\"muted\">$4</span></span>")
+                // This is for inline-code.
                 .replace(/(?<=\s)`(\S|\S.*?\S)`(?=\s|$)/gm, "<span class=\"code\">$&</span>")
                 .replace(/`(?!`+)/g, "<span class=\"muted\">$&</span>")
                 // Block quotes
@@ -50,7 +52,7 @@ function setupMarkdownEditor(textarea, preview, lineNumbers) {
             preview.innerHTML     = syntaxHighlighted
             lineNumbers.innerHTML = lineNumbered
 
-            console.log(syntaxHighlighted)
+            document.querySelectorAll(".hljs").forEach(codeBlock => hljs.highlightElement(codeBlock))
         }
     )
 
