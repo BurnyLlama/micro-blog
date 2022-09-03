@@ -50,6 +50,10 @@ function setupMarkdownEditor(textarea, preview, lineNumbers) {
                 .replace(/\n$/, "\n ")
 
             const lineNumbered = currentText
+                // Show whitespace. (I can't place this in syntax highlighting since some regexes there depends on whitespace...)
+                .replace(/ +/g, match => `<span class="whitespace">${match.replace(/ /g, "∙")}</span>`)
+                .replace(/∙{2}(?=<\/span>(\n|$))/gm, "∙<span class=\"whitespace newline\">⮐</span>")
+                .replace(/\t/g, "<span class=\"whitespace\">⭾\t</span>")
                 // This just creates lines.
                 .replace(/^/gm, "<span class=\"line\">")
                 .replace(/$/gm, "</span>")

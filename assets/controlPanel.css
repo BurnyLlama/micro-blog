@@ -191,3 +191,12 @@ pre {
     font-size: .8rem;
     top: .1rem;
 }
+
+/* Overwrite colours so whitespace is displayed. */
+.line-numbers .whitespace {
+    color: #40405F;
+}
+
+.line-numbers .whitespace.newline {
+    color: #F4C025;
+}
