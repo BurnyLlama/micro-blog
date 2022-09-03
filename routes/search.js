@@ -4,7 +4,7 @@ import Post from "../models/Post.js"
 export const SEARCH = Router()
 
 SEARCH.get("/", (req, res) => {
-    const query = req.query.q
+    const query = req.query.q instanceof Array ? req.query.q[req.query.q.length - 1] : req.query.q
     if (!query)
         return res.render("search.njk")
 
