@@ -22,7 +22,7 @@ label {
     display: block;
 }
 
-textarea, input, .markdown-preview {
+textarea, input, .markdown-preview, .line-numbers {
     color: #E0E0FF;
     background-color: #20203F;
     border: .1rem solid #40405F;
@@ -34,7 +34,7 @@ textarea, input, .markdown-preview {
     padding: .5rem 1rem;
 
     caret-color: #4C9CEF;
-    z-index: 2;
+    z-index: 3;
 
     transition: border-color .3s;
 }
@@ -70,7 +70,7 @@ input[type=submit]:hover {
     border-radius: .5rem;
 }
 
-textarea, .markdown-preview {
+textarea, .markdown-preview, .line-numbers {
     overflow-wrap: break-word;
     overflow-x: visible;
     overflow-y: auto;
@@ -94,27 +94,67 @@ pre {
     background-color: transparent;
     border: 0 none transparent;
     white-space: pre-wrap;
+    margin: 0;
+    padding: 0;
 }
 
 .markdown-preview {
-    z-index: 1;
+    z-index: 2;
 }
 
-.markdown-preview * {
+.markdown-preview *, .line-numbers * {
     font-size: inherit;
     font-family: inherit;
+    margin: 0;
+    padding: 0;
 }
 
-.markdown-preview span.muted {
-    color: #60607F;
+.markdown-preview b {
+    letter-spacing: -.35px;
 }
 
-.markdown-preview span.line {
+.markdown-preview .heading {
+    color: #F4C025;
+}
+
+.markdown-preview .bold-italic {
+    color: #3DDF89;
+}
+
+.markdown-preview .blockquote {
+    color: #EE588F;
+}
+
+.markdown-preview .code {
+    background-color: #30304F;
+    padding: .2rem 0;
+    border-radius: .2rem;
+}
+
+.markdown-preview .code .muted, .markdown-preview .code-block .muted {
+    color: #70708F;
+}
+
+.markdown-preview .code-block {
+    background-color: #00001F;
+    position: absolute;
+    width: calc(100% - 3rem);
+}
+
+
+.line-numbers {
+    z-index: 1;
+    background-color: transparent;
+}
+
+.line-numbers .line {
+    color: transparent;
+    margin: 0;
     counter-increment: line-numbers;
     position: relative;
 }
 
-.markdown-preview span.line::before {
+.line-numbers .line::before {
     color: #40405F;
     content: counter(line-numbers);
     position: absolute;
