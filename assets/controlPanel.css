@@ -71,11 +71,11 @@ input[type=submit]:hover {
 }
 
 textarea, .markdown-preview, .line-numbers {
+    scrollbar-width: thin;
     overflow-wrap: break-word;
     overflow-x: visible;
     overflow-y: auto;
     resize: none;
-    width: 100%;
     font-family: 'Fira Code', monospace;
 
     background-color: transparent;
@@ -100,6 +100,7 @@ pre {
 
 .markdown-preview {
     z-index: 2;
+    scrollbar-width: none;
 }
 
 .markdown-preview *, .line-numbers * {
@@ -136,15 +137,19 @@ pre {
 }
 
 .markdown-preview .code-block {
+    display: inline-block;
     background-color: #00001F;
-    position: absolute;
-    width: calc(100% - 3rem);
+    /* position: relative; */
+    width: 100%;
 }
 
 
 .line-numbers {
     z-index: 1;
     background-color: transparent;
+    /* I do not know why, but this solves weird scrolling issues... */
+    padding-bottom: 5rem;
+    scrollbar-width: none;
 }
 
 .line-numbers .line {

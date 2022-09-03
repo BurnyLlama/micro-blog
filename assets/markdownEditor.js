@@ -44,9 +44,13 @@ function setupMarkdownEditor(textarea, preview, lineNumbers) {
                 // This just creates lines.
                 .replace(/^/gm, "<span class=\"line\">")
                 .replace(/$/gm, "</span>")
+                // This is important for scrolling...
+                .replace(/\n$/, "\n ")
 
             preview.innerHTML     = syntaxHighlighted
             lineNumbers.innerHTML = lineNumbered
+
+            console.log(syntaxHighlighted)
         }
     )
 
