@@ -58,10 +58,7 @@ const Post = {
      * @param {Post} post The post to save.
      * @returns {void}
      */
-    save: post => {
-        db.prepare("INSERT INTO posts (id, title, title_id, text, time, niceTime) VALUES ($id, $title, $title_id, $text, $time, $niceTime)").run(post)
-        db.prepare("INSERT INTO posts_search_table (id, title, title_id, text, niceTime) VALUES ($id, $title, $title_id, $text, $niceTime)").run(post)
-    },
+    save: post => db.prepare("INSERT INTO posts (id, title, title_id, text, time, niceTime) VALUES ($id, $title, $title_id, $text, $time, $niceTime)").run(post),
     /**
      * Gets a single post from the database.
      * @param {string} id The id of the post to get.
