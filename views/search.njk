@@ -25,14 +25,8 @@
     {% endif %}
 
     {% for post in results %}
-        {# {% filter safe %}
-        {% filter replace(queryRegex1, "<span class=\"highlight\">$&</span>" | safe) %}
-        {% filter safe %}
-        {% filter replace(queryRegex2, "<span class=\"highlight\">$&</span>" | safe) %} #}
-            {{ blogPost.post(post.id, post.title, post.title_id, post.text, post.niceTime) | safe }}
-        {# {% endfilter %}
-        {% endfilter %}
-        {% endfilter %}
-        {% endfilter %} #}
+        {% set title = post.title | replace(queryRegex1, "<span class=\"highlight\">$&</span>" | safe | replace(queryRegex2, "<span class=\"highlight\">$&</span>" | safe %}
+        {% set text  = post.text  | replace(queryRegex1, "<span class=\"highlight\">$&</span>" | safe | replace(queryRegex2, "<span class=\"highlight\">$&</span>" | safe %}
+        {{ blogPost.post(post.id, title, post.title_id, text, post.niceTime) | safe }}
     {% endfor %}
 {% endblock %}
