@@ -24,11 +24,9 @@
         <p>Found no search results... Try searching for something else!</p>
     {% endif %}
 
-    {% set queryRegex1 = new Regexp("\\b\\w*?(" + query + ")\\w*?\\b", "igm") %}
-    {% set queryRegex2 = new Regexp(query, "igm") %}
     {% for post in results %}
         {% set title = post.title | replace(queryRegex1, '<span class="highlight">$&</span>') | safe | replace(queryRegex2, '<span class="highlight">$&</span>') | safe %}
         {% set text  = post.text  | replace(queryRegex1, '<span class="highlight">$&</span>') | safe | replace(queryRegex2, '<span class="highlight">$&</span>') | safe %}
-        {{ blogPost.post(post.id, title, post.title_id, text, post.niceTime) | safe }}
+        {{ blogPost.post(post.id, post.title, post.title_id, post.text, post.niceTime) | safe }}
     {% endfor %}
 {% endblock %}
