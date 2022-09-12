@@ -19,14 +19,10 @@ SEARCH.get("/", (req, res) => {
             return Object.assign(
                 e,
                 {
-                    title: e.title
-                        .replace(new RegExp(`\\b\\S*?(${query})\\S*?\\b`, "igm"), "<span class=\"highlight\">$&</span>")
-                        .replace(new RegExp(query, "igm"), "<span class=\"highlight\">$&</span>"),
-                    text: e.text
-                        .replace(new RegExp(`\\b\\S*?(${query})\\S*?\\b`, "igm"), "<span class=\"highlight\">$&</span>")
-                        .replace(new RegExp(query, "igm"), "<span class=\"highlight\">$&</span>"),
+                    title: e.title,
+                    text: e.text,
                 }
             )
         })
-    res.render("search.njk", { query, results })
+    res.render("search.njk", { query, results, quertRegxp1: new RegExp(`\\b\\S*?(${query})\\S*?\\b`, "igm"), quertRegxp2: new RegExp(query, "igm") })
 })

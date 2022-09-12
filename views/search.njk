@@ -24,7 +24,12 @@
         <p>Found no search results... Try searching for something else!</p>
     {% endif %}
 
+    {# {% set queryRegex1 = new Regexp("\\b\\w*?(" + query + ")\\w*?\\b", "igm") %} #}
+    {# {% set queryRegex1 = new Regexp(query, "igm") %} #}
+    {% filter replace(queryRegex1, "<span class=\"highlight\">$&</span>") %}
+    {% filter replace(queryRegex2, "<span class=\"highlight\">$&</span>") %}
     {% for post in results %}
         {{ blogPost.post(post.id, post.title, post.title_id, post.text, post.niceTime) }}
     {% endfor %}
+    {% endfilter %}
 {% endblock %}
