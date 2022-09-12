@@ -19,8 +19,12 @@ SEARCH.get("/", (req, res) => {
             return Object.assign(
                 e,
                 {
-                    title: e.title,
-                    text: e.text,
+                    title: e.title
+                        .replace(new RegExp(`\\b\\S*?(${query})\\S*?\\b`, "igm"), "<span class=\"highlight\">$&</span>")
+                        .replace(new RegExp(query, "igm"), "<span class=\"highlight\">$&</span>"),
+                    text: e.text
+                        .replace(new RegExp(`\\b\\S*?(${query})\\S*?\\b`, "igm"), "<span class=\"highlight\">$&</span>")
+                        .replace(new RegExp(query, "igm"), "<span class=\"highlight\">$&</span>"),
                 }
             )
         })
