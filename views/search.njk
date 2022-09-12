@@ -26,9 +26,11 @@
 
     {% for post in results %}
         {% filter safe %}
-        {% filter replace(queryRegex1, "<span class=\"highlight\">$&</span>") %}
-        {% filter replace(queryRegex2, "<span class=\"highlight\">$&</span>") %}
-            {{ blogPost.post(post.id, post.title, post.title_id, post.text, post.niceTime) }}
+        {% filter replace(queryRegex1, "<span class=\"highlight\">$&</span>" | safe) %}
+        {% filter safe %}
+        {% filter replace(queryRegex2, "<span class=\"highlight\">$&</span>" | safe) %}
+            {{ blogPost.post(post.id, post.title, post.title_id, post.text, post.niceTime) | safe }}
+        {% endfilter %}
         {% endfilter %}
         {% endfilter %}
         {% endfilter %}
