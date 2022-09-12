@@ -20,10 +20,10 @@ SEARCH.get("/", (req, res) => {
                 e,
                 {
                     title: e.title
-                        .replace(new RegExp(`\\S*?(${query})\\S*?`, "igm"), "<span class=\"highlight\">$&</span>")
+                        .replace(new RegExp(`\\b\\S*?(${query})\\S*?\\b`, "igm"), "<span class=\"highlight\">$&</span>")
                         .replace(new RegExp(query, "igm"), "<span class=\"highlight\">$&</span>"),
                     text: e.text
-                        .replace(new RegExp(`\\S*?(${query})\\S*?`, "igm"), "<span class=\"highlight\">$&</span>")
+                        .replace(new RegExp(`\\b\\S*?(${query})\\S*?\\b`, "igm"), "<span class=\"highlight\">$&</span>")
                         .replace(new RegExp(query, "igm"), "<span class=\"highlight\">$&</span>"),
                 }
             )
