@@ -21,10 +21,10 @@ SEARCH.get("/", (req, res) => {
                 {
                     title: e.title
                         .replace(new RegExp(`\\b\\w*?(${query})\\w*?\\b`, "igm"), "<span class=\"highlight\">$&</span>")
-                        .replace(new RegExp(`(<span .+?>\\w*?)(${query})(\\w*?\\b)`, "igm"), "$1<span class=\"highlight\">$2</span>$3"),
+                        .replace(new RegExp(query, "igm"), "<span class=\"highlight\">$&</span>"),
                     text: e.text
                         .replace(new RegExp(`\\b\\w*?(${query})\\w*?\\b`, "igm"), "<span class=\"highlight\">$&</span>")
-                        .replace(new RegExp(`(<span .+?>\\w*?)(${query})(\\w*?\\b)`, "igm"), "$1<span class=\"highlight\">$2</span>$3"),
+                        .replace(new RegExp(query, "igm"), "<span class=\"highlight\">$&</span>"),
                 }
             )
         })
