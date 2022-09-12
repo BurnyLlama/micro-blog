@@ -25,8 +25,8 @@
     {% endif %}
 
     {% for post in results %}
-        {% macro title() %}{{ post.title | replace(queryRegex1, '<span class="highlight">$&</span>' | safe | replace(queryRegex2, '<span class="highlight">$&</span>' | safe }}{% endmacro %}
-        {% macro text() %}{{ post.text | replace(queryRegex1, '<span class="highlight">$&</span>' | safe | replace(queryRegex2, '<span class="highlight">$&</span>' | safe }}{% endmacro %}
+        {% macro title() %}{{ post.title | replace(queryRegex1, '<span class="highlight">$&</span>') | safe | replace(queryRegex2, '<span class="highlight">$&</span>') | safe }}{% endmacro %}
+        {% macro text()  %}{{ post.text  | replace(queryRegex1, '<span class="highlight">$&</span>') | safe | replace(queryRegex2, '<span class="highlight">$&</span>') | safe }}{% endmacro %}
         {{ blogPost.post(post.id, title(), post.title_id, text(), post.niceTime) | safe }}
     {% endfor %}
 {% endblock %}
