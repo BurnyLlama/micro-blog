@@ -24,5 +24,5 @@ SEARCH.get("/", (req, res) => {
                 }
             )
         })
-    res.render("search.njk", { query, results, quertRegxp1: new RegExp(`\\b\\S*?(${query})\\S*?\\b`, "igm"), quertRegxp2: new RegExp(query, "igm") })
+    res.render("search.njk", { query, results })
 })
