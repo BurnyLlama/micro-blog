@@ -24,7 +24,7 @@
     "express": "^4.17.3",
     "express-rate-limit": "^6.5.2",
     "highlight.js": "^11.4.0",
-    "marked": "^4.0.12",
+    "marked": "^5.1.1",
     "multer": "1.4.5-lts.1",
     "nunjucks": "^3.2.3",
     "nunjucks-markdown": "^2.0.1",
