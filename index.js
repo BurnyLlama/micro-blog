@@ -31,13 +31,13 @@ marked.use({
 njkMarkdown.register(NUNJUCKS_ENV, marked)
 
 const RATE_LIMIT = rateLimit({
-    windowMs: 5000,
-    max: 10,
+    windowMs: 500,
+    max: 100,
 })
 
 const ASSETS_RATE_LIMIT = rateLimit({
     windowMs: 500,
-    max: 20,
+    max: 200,
 })
 
 SERVER.use("/assets", ASSETS_RATE_LIMIT, express.static("assets"))
