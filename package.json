@@ -20,7 +20,7 @@
   "dependencies": {
     "argon2": "^0.30.2",
     "better-sqlite3": "^8.0.1",
-    "chokidar": "^3.5.3",
+    "chokidar": "^5.0.0",
     "express": "^4.17.3",
     "express-rate-limit": "^6.5.2",
     "highlight.js": "^11.4.0",
